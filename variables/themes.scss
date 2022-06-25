@@ -1,0 +1,34 @@
+// colors
+$theme-colors: (
+    "primary-light-color":#A5A6F6
+);
+
+$theme-dimensions: (
+    "button-radius":0.625rem
+);
+
+@function hexToRGB($hex) {
+    @if ($hex==none) {
+        @return none;
+    } @else {
+        @return red($hex), green($hex), blue($hex);
+    }
+}
+
+@mixin defineColor($name, $color) {
+    --#{$name}: #{$color};
+    --#{$name}-rgb: #{hexToRGB($color)};
+}
+
+@mixin defineDimension($name, $dimension) {
+    --#{$name}: #{$dimension};
+}
+
+// :root {
+//     @each $variable, $color in $theme-colors {
+//         @include defineColor(#{$variable}, $color);
+//     }
+//     @each $variable, $dimentions in $theme-dimensions {
+//         @include defineDimension(#{$variable}, $dimentions);
+//     }
+// }
